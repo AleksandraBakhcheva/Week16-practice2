@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости автомобиля</title>
+</head>
+<style>
+    .car-form {
+        margin: 0 30%;
+        border: 1px solid #000000;
+    }
+
+    .wrapper {
+        margin: 0 8%;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 8vh;
+        margin-top: 0;
+        color: #ffffff;
+        background-color: rgb(206, 131, 131);
+    }
+
+    .brand,
+    .condition,
+    .type,
+    .additional {
+        margin: 3% 0;
+    }
+
+    .button {
+        display: block;
+        margin: 3% auto;
+        padding: 2% 5%;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        background-color: rgb(206, 131, 131);
+    }
+
+    .result {
+        margin: 0 10%;
+        color: red;
+    }
+
+    @media screen and (max-width: 500px) {
+        .car-form {
+            margin: 0 0;
+        }
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 1024px) {
+        .car-form {
+            margin: 0 15%;
+        }
+    }
+</style>
+
+<body>
+    <form class="car-form">
+        <p class="title">Калькулятор стоимости автомобиля</p>
+        <div class="wrapper">
+            <label for="cars">Выберите марку:
+                <select class="brand" name="cars">
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Reno">Reno</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Land Rover">Land Rover</option>
+                </select>
+            </label>
+            <fieldset class="condition">
+                <legend>Выберите состояние:</legend>
+                <div>
+                    <input class="car-condition" type="radio" name="condition" value="new" checked id="new" />
+                    <label for="new">Новый</label>
+                </div>
+                <div>
+                    <input class="car-condition" type="radio" name="condition" value="used" id="used" />
+                    <label for="used">Подержаный</label>
+                </div>
+            </fieldset>
+            <div>
+                <label for="mileage">Введите пробег, км
+                    <input class="mileage" type="number" name="mileage" placeholder="Пробег, км" />
+                </label>
+            </div>
+            <fieldset class="type">
+                <legend>Тип кузова:</legend>
+                <div>
+                    <input class="car-type" type="radio" name="car-type" value="Седан" checked id="sedan" />
+                    <label for="sedan">Седан</label>
+                </div>
+                <div>
+                    <input class="car-type" type="radio" name="car-type" value="Хетчбэк" id="hetchback" />
+                    <label for="hetchback">Хетчбэк</label>
+                </div>
+                <div>
+                    <input class="car-type" type="radio" name="car-type" value="Универсал" id="universal" />
+                    <label for="universal">Универсал</label>
+                </div>
+                <div>
+                    <input class="car-type" type="radio" name="car-type" value="Кроссовер" id="crossover" />
+                    <label for="crossover">Кроссовер</label>
+                </div>
+            </fieldset>
+            <p class="additional">Дополнительные опции:</p>
+            <div>
+                <input class="additional-options" type="checkbox" name="leather" id="option1" />
+                <label for="option1">Кожанный салон</label>
+            </div>
+            <div>
+                <input class="additional-options" type="checkbox" name="anti-corrosion" id="option2" />
+                <label for="option2">Антикоррозийная обработка</label>
+            </div>
+            <div>
+                <input class="additional-options" type="checkbox" name="stereo" id="option3" />
+                <label for="option3">Стерео система</label>
+            </div>
+            <button class="button" type="button">Рассчитать</button>
+        </div>
+        <div class="result"></div>
+    </form>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
