@@ -1,10 +1,10 @@
-button = document.querySelector('.button');
-button.onclick = getResult;
+let button = document.querySelector('.button');
+button.addEventListener("click", getResult);
 
 function getResult() {
     const carBrand = document.querySelector('.brand');
     let carPrice;
-    
+
     // получение базовой цены
     if (carBrand.value == "Mercedes") {
         carPrice = 2000000;
@@ -24,7 +24,7 @@ function getResult() {
 
     // расчет новый/подержаный
     function newUsed() {
-    let carCondition = document.querySelectorAll('.car-condition');
+        let carCondition = document.querySelectorAll('.car-condition');
         if (carCondition[0].checked) {
             return 0;
         }
@@ -36,43 +36,46 @@ function getResult() {
 
     // расчет пробега
     function mileAge() {
-    let n = 0.5;
-    a = document.querySelector('.mileage').value;
-    let result = +a / +n;
-    carPrice -= result;
+        let n = 0.5;
+        let a = document.querySelector('.mileage');
+        a.oninput = function() {
+            this.value = this.value.substring(0, 5);
+        }
+        let result = +a.value / +n;
+        carPrice -= result;
     }
     mileAge();
 
     // выбор типа автомобиля
     function carType() {
-    let carType = document.querySelectorAll('.car-type');
-    if (carType[0].checked) {
-        carPrice += 50000; 
-    }
-    if (carType[1].checked) {
-        carPrice += 150000; 
-    }
-    if (carType[2].checked) {
-        carPrice += 100000; 
-    }
-    if (carType[3].checked) {
-        carPrice += 200000; 
-    }
+        let carType = document.querySelectorAll('.car-type');
+        if (carType[0].checked) {
+            carPrice += 50000;
+        }
+        if (carType[1].checked) {
+            carPrice += 150000;
+        }
+        if (carType[2].checked) {
+            carPrice += 100000;
+        }
+        if (carType[3].checked) {
+            carPrice += 200000;
+        }
     }
     carType();
 
     // дополнительные опции
     function additionalOptions() {
-    let addOptions = document.querySelectorAll('.additional-options');
-    if (addOptions[0].checked) {
-        carPrice += 300000;
-    }
-    if (addOptions[1].checked) {
-        carPrice += 50000;
-    }
-    if (addOptions[2].checked) {
-        carPrice += 40000;
-    }
+        let addOptions = document.querySelectorAll('.additional-options');
+        if (addOptions[0].checked) {
+            carPrice += 300000;
+        }
+        if (addOptions[1].checked) {
+            carPrice += 50000;
+        }
+        if (addOptions[2].checked) {
+            carPrice += 40000;
+        }
     }
     additionalOptions();
 
