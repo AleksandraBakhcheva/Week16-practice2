@@ -1,6 +1,12 @@
 let button = document.querySelector('.button');
 button.addEventListener("click", getResult);
 
+// ограничение на ввод пробега
+let mileage = document.querySelector('.mileage');
+    mileage.oninput = function() {
+        this.value = this.value.substring(0, 5);
+    }
+
 function getResult() {
     const carBrand = document.querySelector('.brand');
     let carPrice;
@@ -36,12 +42,8 @@ function getResult() {
 
     // расчет пробега
     function mileAge() {
-        let n = 0.5;
-        let a = document.querySelector('.mileage');
-        a.oninput = function() {
-            this.value = this.value.substring(0, 5);
-        }
-        let result = +a.value / +n;
+        let step = 0.5;
+        let result = +mileage.value / +step;
         carPrice -= result;
     }
     mileAge();
